@@ -3,49 +3,28 @@
     <h1>Cadastrar Galpão</h1>
 
     <div class="container">
-      <div>
+      <v-alert v-if="msg != null" type="info">
         {{ msg }}
-      </div>
-      <form v-on:submit.prevent>
-        <div class="form">
-          <label>Nome: </label>
-          <input type="text" v-model="form.name" placeholder="Nome do Galpão">
-        </div>
+      </v-alert>
+      <v-form v-on:submit.prevent>
+        <v-text-field label="Nome" v-model="form.name"></v-text-field>
+
+        <v-text-field label="Código" v-model="form.code"></v-text-field>
+
+        <v-text-field label="Endereço" v-model="form.address"></v-text-field>
+
+        <v-text-field label="Cidade" v-model="form.city"></v-text-field>
+
+        <v-text-field label="CEP" v-model="form.cep"></v-text-field>
+
+        <v-text-field label="Área em m²" v-model="form.area"></v-text-field>
+
+        <v-textarea label="Descrição" v-model="form.description"></v-textarea>
 
         <div class="form">
-          <label>Código: </label>
-          <input type="text" v-model="form.code" placeholder="Código do Galpão">
+          <v-btn color="primay" v-on:click="postWarehouse">Cadastrar</v-btn>
         </div>
-
-        <div class="form">
-          <label>Endereço: </label>
-          <input type="text" v-model="form.address" placeholder="Endereço do Galpão">
-        </div>
-
-        <div class="form">
-          <label>Cidade: </label>
-          <input type="text" v-model="form.city" placeholder="Cidade">
-        </div>
-
-        <div class="form">
-          <label>CEP: </label>
-          <input type="text" v-model="form.cep" placeholder="CEP">
-        </div>
-
-        <div class="form">
-          <label>Área m²: </label>
-          <input type="number" v-model="form.area">
-        </div>
-
-        <div class="form">
-          <label>Descrição: </label>
-          <textarea cols="30" rows="5" v-model="form.description"></textarea>        
-        </div>
-
-        <div class="form">
-          <button v-on:click="postWarehouse">Cadastrar</button>
-        </div>
-      </form>
+      </v-form>
     </div>
   </div>
 </template>
